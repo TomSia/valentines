@@ -1,0 +1,19 @@
+body {
+    font-family: "Gamja Flower";
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    margin-top: 3vh;
+    font-size: 80px;
+}
+
+button {
+    width: 15%;
+    border: 2px black solid;
+    background-color: white;
+    font-size: 40px;
+    font-family: "Gamja Flower";
+    margin  : 50px;
+}

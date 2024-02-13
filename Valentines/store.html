@@ -1,0 +1,179 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="default.css">
+        <style>
+            h1 {
+                margin-bottom: -20px;
+            }
+
+            .itembox {
+                width: 14%;
+                height: 25vh;
+                border: black 1px solid;
+                margin: 40px;
+                padding: 20px;
+                float: left;
+                background-color: white;
+                z-index: 1;
+            }
+
+            .image {
+                width: 100%;
+                height: 80%;
+                border: black 1px solid;
+            }
+
+            #store {
+                width: 70%;
+                margin-left: 18%;
+            }
+
+            .image {
+            }
+
+            .image img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .itembox:hover {
+                transform: scale(1.3);
+                cursor: pointer;
+            }
+
+            #buy {
+                margin-top: 10vh;
+                margin-left: 10%;
+                padding: 20px;
+                z-index: 10;
+                width: 40%;
+                height: 25vh;
+                border: black 1px solid;
+                position:fixed;
+                background-color: white;
+                display: none;
+            }
+
+            #yes:hover {
+                background-color: rgb(123, 231, 181);
+                cursor: pointer;
+            }
+
+            #no:hover {
+                background-color: rgb(221, 139, 139);
+                cursor: pointer;
+            }
+
+            #done {
+                display: none;
+                margin-top: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Our Store</h1>
+        <h2>THIS IS OUR STORE WHERE WE CAN ADD THINGS TO BUY AND CHECK THINGS WE'VE ALREADY BOUGHT</h2>
+        <h2>CREDIT: <span id="credit">3</span></h2>
+        <div id="store">
+            <div class="itembox">
+            <div class="image">
+                <img src="images/grabcar.png">
+            </div>
+            <div class="text">
+                <h2>GRAB RIDE</h2>
+                <span class="cost">1 CREDIT</span>
+            </div>
+            </div>
+            <div class="itembox">
+                <div class="image">
+                    <img src="images/acai.jpg">
+                </div>
+                <div class="text">
+                    <h2>ONE ACAI</h2>
+                    <span class="cost">1 CREDIT</span>
+                </div>
+            </div>
+            <div class="itembox">
+                <div class="image">
+                    <img src="images/burger.jpg">
+                </div>
+                <div class="text">
+                    <h2>ONE BURGER</h2>
+                    <span class="cost">1 CREDIT</span>
+                </div>
+            </div>
+            <div class="itembox">
+                <div class="image">
+                    <img src="images/toner.jpg">
+                </div>
+                <div class="text">
+                    <h2>TONER PADS</h2>
+                    <span class="cost">1 CREDIT</span>
+                </div>
+            </div>
+            <div class="itembox">
+                <div class="image">
+                    <img src="images/shoppee.png">
+                </div>
+                <div class="text">
+                    <h2>ITEM FROM SHOPEE</h2>
+                    <span class="cost">1 CREDIT</span>
+                </div>
+            </div>
+            <div class="itembox">
+                <div class="image">
+                    <img src="images/sgd.jpg">
+                </div>
+                <div class="text">
+                    <h2>$10 SGD</h2>
+                    <span class="cost">1 CREDIT</span>
+                </div>
+            </div>
+            <div id="buy">
+                <div id="query">
+                    <h2>WOULD YOU LIKE TO BUY IT FOR 1 CREDUT?</h2>
+                    <button id="yes" onclick="yes()">YES</button>
+                    <button id="no" onclick = "no()">NO</button>
+                </div>
+                <div id="done">
+                    <h2>THANK YOU FOR YOUR PURCHASE!</h2>
+                </div>
+            </div>
+        </div>
+        <script>
+            const boxes = document.querySelectorAll('.itembox');
+
+            i = 3;
+
+            boxes.forEach(box => {
+            box.addEventListener('click', function handleClick(event) {
+                console.log('box clicked', event);
+                if (i == 0) {
+                    alert("Sorry! You ran out of credits.")
+                } else {
+                    document.getElementById("buy").style.display = "block";
+                }
+
+               
+            });
+            });
+
+            
+
+            function yes () {
+                i--;
+                console.log(i)
+                document.getElementById("credit").innerHTML = i;
+                document.getElementById("query").style.display = "none";
+                document.getElementById("done").style.display = "block";
+                setTimeout(() => {no()}, 1000);
+            }
+
+            function no () {
+                document.getElementById("buy").style.display = "none";
+                document.getElementById("query").style.display = "block";
+                document.getElementById("done").style.display = "none";
+            }
+        </script>
+    </body>
+</html>
