@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <title>Valentines Day!</title>
+        <style>
+            body {
+                margin: 0px;
+                font-family: "Gamja Flower";
+            }
+            #willyou {
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+                background-image:url(background.png);
+            }
+            h1 {
+                padding-top: 40vh;
+                font-size: 110px;
+            }
+
+            button {
+                border: none;
+                background-color: white;
+                font-size: 60px;
+                font-family: "Gamja Flower";
+            }
+
+            #emcee {
+                position: relative;
+                z-index: 2;
+            }
+
+            button:hover {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="willyou">
+            <bgsound src = "romance.mp3"/>
+            <h1>Will you be my Valentine?</h1>
+            <a href="ty.html"><button>YES</button></a>
+            <button id="emcee">NO</button>
+        </div>
+    </body>
+    <script>
+        function romance() {
+        }
+
+        var caller = $("#emcee"),
+            box = $("#box");
+
+        function foo()
+        {
+            var randX = Math.floor(Math.random() * (window.innerWidth - 100));
+            var randY = Math.floor(Math.random() * (window.innerHeight - 100));
+            console.log([randX, randY]);
+            caller.stop().animate({"left": randX + "px", "top": randY + "px"});
+
+        }
+
+        $(document).ready(function() {
+            
+            caller.on('mouseenter', foo);
+            caller.on('click', function(){
+                document.getElementById("emcee").innerHTML = "baby..."
+            });
+            
+        });
+    </script>
+    
+    
+</html>
